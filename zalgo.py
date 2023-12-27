@@ -42,7 +42,7 @@ def zalgo_convert(text, intensity=1):
     """
 
     # nothing to do here
-    if intensity == 0:
+    if intensity == 0 or intensity not in intensity_map.keys():
         return text
 
     max_marks = intensity_map[intensity][0]
