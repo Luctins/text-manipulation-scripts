@@ -1,5 +1,6 @@
 #!/bin/env python3
 
+from converters import Converter
 import random as r
 
 intensity_map = {
@@ -35,40 +36,42 @@ zalgo_marks = [
     ]
 ]
 
+class Zalgo(Converter):
 
-def zalgo_convert(text, intensity=1):
-    """
-    Apply zalgo to a string with given intensity
-    """
+    def convert(self, text: str, intensity=1) -> str:
+        """
+        Apply zalgo to a string with given intensity
+        """
 
-    # nothing to do here
-    if intensity == 0 or intensity not in intensity_map.keys():
-        return text
+        # nothing to do here
+        if intensity == 0 or intensity not in intensity_map.keys():
+            return text
 
-    max_marks = intensity_map[intensity][0]
-    # _mmax = intensity_map[intensity][1]
+        max_marks = intensity_map[intensity][0]
+        # _mmax = intensity_map[intensity][1]
 
-    result = ""
+        result = ""
 
-    for char in text:
-        # skip spaces and newlines
-        if char not in ['\n', ' ']:
+        for char in text:
+            # skip spaces and newlines
+            if char not in ['\n', ' ']:
 
-            # Treat every char to a nice bunch of marks
-            for mark_list in zalgo_marks:
-                if r.random() > 0.2:
-                    for _x in range(r.randint(0, max_marks)):
-                        char += r.choice(mark_list)
-        result += char
+                # Treat every char to a nice bunch of marks
+                for mark_list in zalgo_marks:
+                    if r.random() > 0.2:
+                        for _x in range(r.randint(0, max_marks)):
+                            char += r.choice(mark_list)
+            result += char
 
-    return result
+        return result
 
+cvt2zalgo = Zalgo()
 
-if __name__ == '__main__':
-    import sys
-
-    if len(sys.argv) == 1:
-        print('missing argument')
-        sys.exit(1)
-
-    print(zalgo_convert(sys.argv[1]))
+#if __name__ == '__main__':
+#    import sys
+#
+#    if len(sys.argv) == 1:
+#        print('missing argument')
+#        sys.exit(1)
+#
+#    print(zalgo_convert(sys.argv[1]))

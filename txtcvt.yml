@@ -1,0 +1,114 @@
+matches:
+- trigger: ":smc"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - smc
+
+- trigger: ":rdc"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - rdc
+
+- trigger: ":sqc"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - sqc
+            
+- trigger: ":zalgo-1"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - zalgo-1
+
+- trigger: ":zalgo-2"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - zalgo-2
+
+- trigger: ":zalgo-3"
+  replace: "{{output}}"
+  vars:
+    - name: input
+      type: form
+      params:
+        layout: |
+          [[name]]
+    - name: output
+      type: script
+      params:
+        inject_args: true
+        args:
+          - python3
+          - "%CONFIG%/scripts/txtcvt.py"
+          - -e
+          - -o
+          - zalgo-3
